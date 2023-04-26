@@ -12,3 +12,6 @@ URL to request: https://memegen-link-examples-upleveled.netlify.app/
         response.ok can show whether the request returned something
 
        how can I read the returned response
+
+       .then chain:
+        can take two arguments:  one to handle the promise if it resolves, and one to handle network errors if the promise is rejected.
