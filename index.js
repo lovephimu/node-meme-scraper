@@ -1,6 +1,7 @@
-const memeUrl = 'https://memegen-link-examples-upleveled.netlify.app/';
+const memeUrl = 'https://memegen-link-examples-upleveled.netlify.app/'; // the memepage Url
 
 async function getStuff(url) {
+  // fetch function for HTML
   await fetch(url)
     .then(
       (response) => {
@@ -17,6 +18,6 @@ async function getStuff(url) {
     .catch((error) => console.log(error.message));
 }
 
-getStuff(memeUrl);
+await getStuff(memeUrl);
 
 // fetch('https://memegen-link-examples-upleveled.netlify.app/');
