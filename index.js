@@ -9,9 +9,9 @@ const folderPath = './memes';
 
 const response = await fetch(memeUrl);
 const responseText = await response.text();
-const editText = await responseText
-  .split('section id="images"')[1]
-  .slice(0, 1000);
+// const editText = await responseText
+// .split('section id="images"')[1]
+// .slice(0, 1000);
 // console.log(editText);
 // console.log(responseText.split('section id="images"')[1].slice(0, 10000));
 
