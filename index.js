@@ -13,10 +13,11 @@ const responseText = await response.text();
 // defining function declaration for filtering the responseText for image urls by using regex
 
 function filterImageUrls(data) {
-  const regEx = /https:\/\/.*?\.jpg/g; // regular expression for images urls
+  const regEx = /\<img src="https:\/\/api.*?\.jpg/g; // regular expression for images urls
 
   const matches = data.match(regEx).slice(0, 10); // match according to regEx pattern
-  return matches;
+  const result = matches.map((item) => item.slice(10));
+  return result;
 }
 
 // defining function declaration for downloading images
@@ -30,6 +31,8 @@ function saveImage(urls, filepath) {
 // saving filtered image urls to an array
 
 const filteredUrls = await filterImageUrls(responseText);
+
+console.log(filteredUrls);
 
 // looping through images and assigning download location and
 
