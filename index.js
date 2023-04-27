@@ -37,7 +37,7 @@ let counter = 1;
 const dec = 0;
 
 for (let i = 0; i < filteredUrls.length; i++) {
-  console.log(filteredUrls[i]);
+  // console.log(filteredUrls[i]);
   counter = i + 1;
 
   if (i < 9) {
