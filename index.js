@@ -20,7 +20,7 @@ const responseText = await response.text();
 function filterImageUrls(data) {
   const regEx = /src="https:\/\/api.*\.jpg/g;
   let match;
-  let results = [];
+  const results = [];
   let i = 0;
   while ((match = regEx.exec(data)) !== null && i < 10) {
     // console.log(match[0].slice(5));
