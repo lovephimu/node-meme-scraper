@@ -19,17 +19,32 @@ function filterImageUrls(data) {
   return matches;
 }
 
-// saving filtered image urls to an array
-
-const filteredUrls = filterImageUrls(responseText);
-console.log(filteredUrls);
-
 // defining function declaration for downloading images
 
-function downloadImage(urls, filepath) {
+function saveImage(urls, filepath) {
   client.get(urls, (res) => {
     res.pipe(fs.createWriteStream(filepath));
   });
+}
+
+// saving filtered image urls to an array
+
+const filteredUrls = await filterImageUrls(responseText);
+
+// looping through images and assigning download location and
+
+let counter = 1;
+const dec = 0;
+
+for (let i = 0; i < filteredUrls.length; i++) {
+  console.log(filteredUrls[i]);
+  counter = i + 1;
+
+  if (i < 9) {
+    saveImage(filteredUrls[i], folderPath + `/${dec}${counter}.jpg`);
+  } else {
+    saveImage(filteredUrls[i], folderPath + `/${counter}.jpg`);
+  }
 }
 
 // async function getStuff(url) {
