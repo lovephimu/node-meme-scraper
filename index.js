@@ -9,16 +9,30 @@ const folderPath = './memes';
 
 const response = await fetch(memeUrl);
 const responseText = await response.text();
+const editText = await responseText
+  .split('section id="images"')[1]
+  .slice(0, 1000);
+// console.log(editText);
+// console.log(responseText.split('section id="images"')[1].slice(0, 10000));
 
-// defining function declaration for filtering the responseText for image urls by using regex
+// defining function declaration for filtering the responseText for image urls by using regexgit
 
 function filterImageUrls(data) {
-  const regEx = /\<img src="https:\/\/api.*?\.jpg/g; // regular expression for images urls
-
-  const matches = data.match(regEx).slice(0, 10); // match according to regEx pattern
-  const result = matches.map((item) => item.slice(10));
-  return result;
+  const regEx = /src="https:\/\/api.*\.jpg/g;
+  let match;
+  let results = [];
+  let i = 0;
+  while ((match = regEx.exec(data)) !== null && i < 10) {
+    // console.log(match[0].slice(5));
+    results.push(match[0].slice(5));
+    i++;
+  }
+  return results;
 }
+
+// const regex = /<img.*?src="(.*?)"/g;
+// let match;
+// const urls = [];
 
 // defining function declaration for downloading images
 
