@@ -30,16 +30,19 @@ function filterImageUrls(data) {
   return results;
 }
 
-// const regex = /<img.*?src="(.*?)"/g;
-// let match;
-// const urls = [];
-
 // defining function declaration for downloading images
 
 function saveImage(urls, filepath) {
   client.get(urls, (res) => {
     res.pipe(fs.createWriteStream(filepath));
   });
+}
+
+// creating a folder called meme
+
+if (!fs.existsSync(folderPath)) {
+  // check if folder already exists
+  fs.mkdirSync(folderPath); // creating folder
 }
 
 // saving filtered image urls to an array
