@@ -46,32 +46,3 @@ for (let i = 0; i < filteredUrls.length; i++) {
     saveImage(filteredUrls[i], folderPath + `/${counter}.jpg`);
   }
 }
-
-// async function getStuff(url) {
-//   await fetch(url)
-//     .then(
-//       // insert an if statement here to separate between website url and img url
-//       (response) => {
-//         if (response.ok) {
-//           return response.text();
-//         }
-//         throw new Error('Boom! Response not okay!'); // just in case the response is not okay
-//       },
-//     )
-//     .then((data) => {
-//       const regEx = /https:\/\/.*?\.jpg/g; // regular expression for images urls
-
-//       const matches = data.match(regEx).slice(0, 10); // match according to regEx pattern
-//       console.log(matches);
-//       return matches;
-//     })
-//     .catch((error) => console.log(error.message));
-// }
-
-// console.log(await getStuff(memeUrl));
-
-// fetch('https://memegen-link-examples-upleveled.netlify.app/');
-
-// await fetch('https://api.memegen.link/images/keanu.jpg').then((result) =>
-//   console.log(result),
-// );
