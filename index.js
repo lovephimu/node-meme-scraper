@@ -18,7 +18,7 @@ const responseText = await response.text();
 // defining function declaration for filtering the responseText for image urls by using regexgit
 
 function filterImageUrls(data) {
-  const regEx = /src="https:\/\/api.*\.jpg/g;
+  const regEx = /src="https:\/\/api.*\.jpg\?width=300/g;
   let match;
   const results = [];
   let i = 0;
